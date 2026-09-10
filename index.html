@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Betting Grid - Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚽ Soccer Betting Grid</h1>
+            <p>Demo Sports Betting Platform (Fantasy Money)</p>
+        </header>
+
+        <nav class="navbar">
+            <div class="nav-left">
+                <span class="logo">BettingGrid</span>
+            </div>
+            <div class="nav-right">
+                <span class="balance">Your Balance: <strong id="userBalance">$1000</strong></span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <main>
+            <!-- Filters -->
+            <div class="filters">
+                <h3>Upcoming Matches</h3>
+                <select id="leagueFilter" onchange="filterMatches()">
+                    <option value="">All Leagues</option>
+                    <option value="Premier League">Premier League</option>
+                    <option value="La Liga">La Liga</option>
+                    <option value="Serie A">Serie A</option>
+                    <option value="Bundesliga">Bundesliga</option>
+                    <option value="Ligue 1">Ligue 1</option>
+                </select>
+            </div>
+
+            <!-- Matches Grid -->
+            <div id="matchesContainer" class="matches-container">
+                <!-- Matches will be loaded here by JavaScript -->
+            </div>
+        </main>
+
+        <!-- Bet Slip Modal -->
+        <div id="betModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeBetModal()">&times;</span>
+                <h2>Place Your Bet</h2>
+                <div id="betDetails"></div>
+                <div class="bet-form">
+                    <label>Stake ($):</label>
+                    <input type="number" id="stakeInput" min="1" value="10" placeholder="Enter stake">
+                    <div class="bet-calculation">
+                        <p>Odds: <strong id="selectedOdds">-</strong></p>
+                        <p>Potential Payout: <strong id="potentialPayout">$0</strong></p>
+                    </div>
+                    <button class="btn-primary" onclick="placeBet()">Confirm Bet</button>
+                    <button class="btn-secondary" onclick="closeBetModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
